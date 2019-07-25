@@ -1,0 +1,72 @@
+#titoloGioco{
+	position:absolute;
+	top: 350px;
+	left: 560px;
+	text-shadow: 4px 4px black;
+	color: gray;
+	font-size: 5em;
+}
+
+#accessForm{
+	position:absolute;
+	width:1366px;
+	height:97%;
+}
+
+#formsx{
+	display:inline;
+	float:left;
+	width:50%;
+	text-align:center;
+	height:100%;
+	padding-top:1%;
+	background-color:white;
+}
+
+#formdx{
+	display:inline;
+	float:left;
+	width:50%;
+	text-align:center;
+	height:100%;
+	padding-top:1%;
+	color:white;
+	background-color:#343d46;
+}
+
+.pawn{
+	padding:0px;
+	border-radius:100%;
+	margin:auto;
+	width:80px;
+	height:80px;
+	margin-bottom:3%;
+}
+
+#blackPawn{
+	border: 3px solid white;
+	box-shadow: 0 0 30px white;
+	background-color:#343d46;
+}
+	
+#whitePawn{
+	border: 3px solid black;
+	box-shadow: 0 0 30px black;
+	background-color:white;
+}
+
+#accesso{
+	position:absolute;
+	margin: 0px;
+	text-align:center;
+	left: 625px;
+	top: 200px;
+	
+}
+
+#preg{
+	position:absolute;
+	text-align:center;
+	left: 540px;
+	top: 300px;
+}

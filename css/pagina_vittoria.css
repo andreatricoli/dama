@@ -1,0 +1,30 @@
+#classifica{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+    border-collapse: collapse;
+	text-align: center;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	line-height: 1.5;
+}
+
+.righeUtenti{
+	border: 1px solid white;
+}
+
+#titleClassifica{
+	font-size: 20px;
+}
+
+#vittoria{
+	text-align:center;
+	font-size: 40px;
+	color: #6bf;
+}
+
+#pannello{
+	text-align:center;
+	margin: 50px;
+}

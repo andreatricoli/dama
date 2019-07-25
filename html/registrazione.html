@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Dama - Registrazione</title>
+		<link rel="stylesheet" type="text/css" href="../css/pagina_registrazione.css">
+		<link rel="stylesheet" type="text/css" href="../css/struttura.css">
+	</head>
+	<body>
+		<p class ="titolo" id="titReg">registrazione</p>
+		<form class="form" id="formReg" name="form" action="../php/registra.php" method="post">
+			<p>
+			Email:<br>
+			<input type="text" name="email" maxlength="50" size="30"><br>
+			Password:<br>
+			<input type="password" name="pass" maxlength="50" size="30"><br>
+			conferma password:<br>
+			<input type="password" name="pass_control" maxlength="50" size="30"><br>
+			Nickname:<br>
+			<input type="text" name="nick" maxlength="50" size="30"><br><br>
+			<input class="bottone" type="submit" value="Registrati"><br>
+			</p>
+		</form>
+		<div id = "footerReg">
+			<p>Sei gia registrato?</p><a href="../index.html">accedi</a>
+		</div>
+	</body>
+</html>
