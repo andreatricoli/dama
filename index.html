@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<title>Dama - Partita</title>
 		<link rel="stylesheet" type="text/css" href="css/dama.css">
@@ -10,6 +10,18 @@
 	</head>
 		
 	<body id="bodyRoom">
+		<button onclick="changeVSMode()" class="js-button-vs-mode">PC ON MODE</button>
+		<script>
+			var vsPcModeFlag = true;
+			function changeVSMode() {
+				vsPcModeFlag = !vsPcModeFlag;
+				if(vsPcModeFlag){
+					document.getElementsByClassName('js-button-vs-mode')[0].innerHTML = "PC ON MODE";
+				} else {
+					document.getElementsByClassName('js-button-vs-mode')[0].innerHTML = "PC OFF MODE";
+				}
+			}
+		</script>
 		<script src="js/spostamento.js"></script>
 		<script src="js/presa.js"></script>
 		<script src="js/mosse.js"></script>

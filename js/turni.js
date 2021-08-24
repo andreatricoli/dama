@@ -32,7 +32,100 @@ function gestione_turni(){
 				abilita(pedina);
 			}
 		}
+
+        if(vsPcModeFlag) {
+            setTimeout(vsPcMode, 500);
+        }
+
 	}		
+}
+
+function pcMangia(){
+        //controlla se puo mangiare
+        for(var i=1; i<=64; i++){
+            var pedina = document.getElementById(i);
+            if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura") {
+                var caselle_mangia = controllo_mosse_mangia(pedina);
+
+                if(caselle_mangia.check) {
+
+                    var casella;
+                    var altracasella;
+
+                    if(caselle_mangia.one != null) {
+                        casella = caselle_mangia.one;
+                        altracasella = caselle_mangia.one_move;
+                    } else if( caselle_mangia.two != null) {
+                        casella = caselle_mangia.two;
+                        altracasella = caselle_mangia.two_move;
+                    } else if( caselle_mangia.three != null) {
+                        casella = caselle_mangia.three;
+                        altracasella = caselle_mangia.three_move;
+                    } else if( caselle_mangia.four != null) {
+                          casella = caselle_mangia.four;
+                          altracasella = caselle_mangia.four_move;
+                    } else {
+                        casella = null;
+                        altracasella = null;
+                    }
+
+                    mangia_pedina(casella, i, altracasella.firstChild.id);
+                    console.log("mangia");
+                    return true;
+                }
+            }
+        }
+        return false;
+}
+
+function pcSposta(){
+    //altrimenti prende una pedina a caso e la muove
+        var i = Math.floor(Math.random() * 64) + 1;
+        var pedina = document.getElementById(i);
+        if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura") {
+            var caselle_spostamento = controllo_mosse_spostamento(pedina);
+
+            if(caselle_spostamento.check) {
+
+                var casella;
+
+                if(caselle_spostamento.one != null) {
+                    casella = caselle_spostamento.one;
+                } else if( caselle_spostamento.two != null) {
+                    casella = caselle_spostamento.two;
+                } else if( caselle_spostamento.three != null) {
+                    casella = caselle_spostamento.three;
+                } else if( caselle_spostamento.four != null) {
+                      casella = caselle_spostamento.four;
+                } else {
+                    casella = null;
+                }
+
+                sposta_pedina(casella, i);
+                console.log("sposta");
+                return true;
+            }
+            pcSposta();
+
+        } else {
+            pcSposta();
+        }
+}
+
+function vsPcMode(){
+    var checkMangia;
+    var checkSposta;
+
+    checkMangia = pcMangia();
+    if(!checkMangia) {
+        checkSposta = pcSposta();
+    }
+    if(checkMangia || checkSposta) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function disabilita(pedina){

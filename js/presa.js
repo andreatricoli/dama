@@ -3,11 +3,11 @@ function abilita_mangiata_pedina_bianca(casella, x, altracasella){
 		if(x.id >16){ 
 			if(casella.firstChild.className == "pedina_nascosta" && casella.className != "casella_chiara"){
 				casella.setAttribute("onclick", "mangia_pedina(this, "+x.id+", "+altracasella.firstChild.id+")");
-				return true;
+				return casella;
 			}
 		}
 	}
-	return false;
+	return null;
 }
 
 function abilita_mangiata_pedina_nera(casella, x, altracasella){
@@ -15,11 +15,11 @@ function abilita_mangiata_pedina_nera(casella, x, altracasella){
 		if(x.id <49){ 
 			if(casella.firstChild.className == "pedina_nascosta" && casella.className != "casella_chiara"){
 				casella.setAttribute("onclick", "mangia_pedina(this, "+x.id+", "+altracasella.firstChild.id+")");
-				return true;
+				return casella;
 			}
 		}
 	}
-	return false;
+	return null;
 }
 
 function abilita_mangiata_dama_chiara_sup(casella, x, altracasella){
@@ -28,12 +28,12 @@ function abilita_mangiata_dama_chiara_sup(casella, x, altracasella){
 			if(x.id>16){
 				if(casella.firstChild.className == "pedina_nascosta" && casella.className != "casella_chiara"){
 					casella.setAttribute("onclick", "mangia_pedina(this, "+x.id+", "+altracasella.firstChild.id+")");
-					return true;
+					return casella;
 				}
 			}
 		}
 	}
-	return false;
+	return null;
 }
 
 function abilita_mangiata_dama_chiara_inf(casella, x, altracasella){
@@ -42,12 +42,12 @@ function abilita_mangiata_dama_chiara_inf(casella, x, altracasella){
 			if(x.id<49){
 				if(casella.firstChild.className == "pedina_nascosta" && casella.className != "casella_chiara"){
 					casella.setAttribute("onclick", "mangia_pedina(this, "+x.id+", "+altracasella.firstChild.id+")");
-					return true;
+					return casella;
 				}
 			}
 		}
 	}
-	return false;
+	return null;
 }
 
 function abilita_mangiata_dama_scura_sup(casella, x, altracasella){
@@ -56,12 +56,12 @@ function abilita_mangiata_dama_scura_sup(casella, x, altracasella){
 			if(x.id>16){
 				if(casella.firstChild.className == "pedina_nascosta" && casella.className != "casella_chiara"){
 					casella.setAttribute("onclick", "mangia_pedina(this, "+x.id+", "+altracasella.firstChild.id+")");
-					return true;
+					return casella;
 				}
 			}
 		}
 	}
-	return false;
+	return null;
 }
 
 function abilita_mangiata_dama_scura_inf(casella, x, altracasella){
@@ -70,12 +70,12 @@ function abilita_mangiata_dama_scura_inf(casella, x, altracasella){
 			if(x.id<49){
 				if(casella.firstChild.className == "pedina_nascosta" && casella.className != "casella_chiara"){
 					casella.setAttribute("onclick", "mangia_pedina(this, "+x.id+", "+altracasella.firstChild.id+")");
-					return true;
+					return casella;
 				}
 			}
 		}
 	}
-	return false;
+	return null;
 }
 
 function controllo_mosse_mangia(x){
@@ -106,7 +106,15 @@ function controllo_mosse_mangia(x){
 		var casellamangsx = document.getElementById("casella"+(((x.id)-16)-2));
 		check2 = abilita_mangiata_pedina_bianca(casellamangsx, x, casellasx);
 
-		return(check1||check2);
+        var caselle = {
+            one: check1,
+            one_move: caselladx,
+            two: check2,
+            two_move: casellasx,
+            check: check1 == null && check2 == null? false : true
+        };
+
+		return(caselle);
 	}
 
 	if(x.className == "pedina_scura"){
@@ -121,7 +129,15 @@ function controllo_mosse_mangia(x){
 		var casellamangsx = document.getElementById("casella"+(((x.id)*1+16)-2));
 		check2 = abilita_mangiata_pedina_nera(casellamangsx, x, casellasx);
 
-		return(check1||check2);
+        caselle = {
+            one: check1,
+            one_move: caselladx,
+            two: check2,
+            two_move: casellasx,
+            check: check1 == null && check2 == null ? false : true
+        };
+
+		return(caselle);
 	}
 	
 	if(x.className == "dama_chiara"){
@@ -145,8 +161,20 @@ function controllo_mosse_mangia(x){
 		//mangia pedina a sxi
 		var casellamangsxi = document.getElementById("casella"+(((x.id)*1+16)-2));
 		check4 = abilita_mangiata_dama_chiara_inf(casellamangsxi, x, casellasxi);
+
+        caselle = {
+            one: check1,
+            one_move: caselladxs,
+            two: check2,
+            two_move: casellasxs,
+            three: check3,
+            three_move: caselladxi,
+            four: check4,
+            four_move: casellasxi,
+            check: check1 == null && check2 == null && check3 == null && check4 == null? false : true
+        };
 					
-		return(check1||check2||check3||check4);
+		return(caselle);
 	}
 	
 	if(x.className == "dama_scura"){
@@ -171,7 +199,19 @@ function controllo_mosse_mangia(x){
 		var casellamangsxi = document.getElementById("casella"+(((x.id)*1+16)-2));
 		check4 = abilita_mangiata_dama_scura_inf(casellamangsxi, x, casellasxi);
 
-		return(check1||check2||check3||check4);
+        caselle = {
+            one: check1,
+            one_move: caselladxs,
+            two: check2,
+            two_move: casellasxs,
+            three: check3,
+            three_move: caselladxi,
+            four: check4,
+            four_move: casellasxi,
+            check: check1 == null && check2 == null && check3 == null && check4 == null? false : true
+        };
+
+		return(caselle);
 	}		
 }
 
@@ -183,14 +223,16 @@ function mangia_pedina(casellasel, y, z){
 		
 		if(pedinasel.className == "pedina_chiara"){
 			//trasformazione in dama
-			if(casellasel.firstChild.id <= 8)
-				casellasel.firstChild.className ="dama_chiara";
+			if(casellasel.firstChild.id <= 8){
+                casellasel.firstChild.className ="dama_chiara";
+			}
 		}
 		
 		if(pedinasel.className == "pedina_scura"){
 			//trasformazione in dama
-			if(casellasel.firstChild.id >= 58)
-				casellasel.firstChild.className ="dama_scura";
+			if(casellasel.firstChild.id >= 58) {
+                casellasel.firstChild.className ="dama_scura";
+			}
 		}
 		
 		var control = false;
@@ -217,7 +259,7 @@ function mangia_pedina(casellasel, y, z){
 		
 		//controllo_vittoria_tutte_mangiate();
 			
-		if(controllo_mosse_mangia(casellasel.firstChild)==true){
+		if(controllo_mosse_mangia(casellasel.firstChild).check){
 			if(control == true){
 				seleziona_pedina2(casellasel.firstChild);
 			}

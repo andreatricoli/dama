@@ -1,17 +1,17 @@
 function abilita_spostamento(casella, x){
 	if(casella.firstChild.className == "pedina_nascosta" && casella.className != "casella_chiara"){
 			casella.setAttribute("onclick", "sposta_pedina(this,"+x.id+")");
-			return true;
+			return casella;
 	}
-	return false;
+	return null;
 }
 
 
 function controllo_mosse_spostamento(x){
-	var check1 = false;
-	var check2 = false;
-	var check3 = false;
-	var check4 = false;
+	var check1;
+	var check2;
+	var check3;
+	var check4;
 
 	//sposta pedina o dama	
 	if(x.className == "pedina_chiara"||x.className == "pedina_scura"){
@@ -26,8 +26,14 @@ function controllo_mosse_spostamento(x){
 		
 		check1 = abilita_spostamento(caselladx, x);
 		check2 = abilita_spostamento(casellasx, x);
+
+		var caselle = {
+		    one: check1,
+		    two: check2,
+		    check: check1 == null && check2 == null? false : true
+		};
 		
-		return(check1||check2);
+		return(caselle);
 	}
 	
 	if(x.className == "dama_chiara"||x.className == "dama_scura"){
@@ -43,7 +49,16 @@ function controllo_mosse_spostamento(x){
 			check3 = abilita_spostamento(caselladxi, x);
 			check4 = abilita_spostamento(casellasxi, x);
 		}
-		return(check1||check2||check3||check4);
+
+        caselle = {
+            one: check1,
+            two: check2,
+            three: check3,
+            four: check4,
+            check: check1 == null && check2 == null && check3 == null && check4 == null? false : true
+        };
+
+		return(caselle);
 	}
 }
 

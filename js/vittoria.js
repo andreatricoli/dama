@@ -145,7 +145,7 @@ function controllo_vittoria_tutte_bloccate(){
 			var pedina = document.getElementById(i);
 
 			if(pedina.className == "pedina_chiara"||pedina.className == "dama_chiara"){
-				if(controllo_mosse_spostamento(pedina) || controllo_mosse_mangia(pedina)){
+				if(controllo_mosse_spostamento(pedina).check || controllo_mosse_mangia(pedina).check){
 					continua_partita = true;
 					break;
 				}
@@ -165,7 +165,7 @@ function controllo_vittoria_tutte_bloccate(){
 			var pedina = document.getElementById(i);
 
 			if(pedina.className == "pedina_scura"||pedina.className == "dama_scura"){
-				if(controllo_mosse_spostamento(pedina) || controllo_mosse_mangia(pedina)){
+				if(controllo_mosse_spostamento(pedina).check || controllo_mosse_mangia(pedina).check){
 					continua_partita = true;
 					break;
 				}
