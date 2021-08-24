@@ -1,6 +1,7 @@
 #damiera {
 	width: 560px;
-	margin-top: 0px;
+    margin-top: 50vh;
+    transform: translate(0, -50%);
 	margin-left: auto;
 	margin-right: auto;
 	border:5px solid black;
