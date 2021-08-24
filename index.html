@@ -10,15 +10,15 @@
 	</head>
 		
 	<body id="bodyRoom">
-		<button onclick="changeVSMode()" class="js-button-vs-mode">PC ON MODE</button>
+		<button onclick="changeVSMode()" class="js-button-vs-mode">PC MODE ON</button>
 		<script>
 			var vsPcModeFlag = true;
 			function changeVSMode() {
 				vsPcModeFlag = !vsPcModeFlag;
 				if(vsPcModeFlag){
-					document.getElementsByClassName('js-button-vs-mode')[0].innerHTML = "PC ON MODE";
+					document.getElementsByClassName('js-button-vs-mode')[0].innerHTML = "PC MODE ON";
 				} else {
-					document.getElementsByClassName('js-button-vs-mode')[0].innerHTML = "PC OFF MODE";
+					document.getElementsByClassName('js-button-vs-mode')[0].innerHTML = "PC MODE OFF";
 				}
 			}
 		</script>
