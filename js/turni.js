@@ -78,38 +78,33 @@ function pcMangia(){
         return false;
 }
 
-function pcSposta(){
-    //altrimenti prende una pedina a caso e la muove
-        var i = Math.floor(Math.random() * 64) + 1;
-        var pedina = document.getElementById(i);
-        if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura") {
-            var caselle_spostamento = controllo_mosse_spostamento(pedina);
+function pcSposta(caselle_spostamento, i){
 
-            if(caselle_spostamento.check) {
+        var casella;
 
-                var casella;
-
-                if(caselle_spostamento.one != null) {
-                    casella = caselle_spostamento.one;
-                } else if( caselle_spostamento.two != null) {
-                    casella = caselle_spostamento.two;
-                } else if( caselle_spostamento.three != null) {
-                    casella = caselle_spostamento.three;
-                } else if( caselle_spostamento.four != null) {
-                      casella = caselle_spostamento.four;
-                } else {
-                    casella = null;
-                }
-
-                sposta_pedina(casella, i);
-                console.log("sposta");
-                return true;
-            }
-            pcSposta();
-
+        if(caselle_spostamento.one != null) {
+            casella = caselle_spostamento.one;
+        } else if( caselle_spostamento.two != null) {
+            casella = caselle_spostamento.two;
+        } else if( caselle_spostamento.three != null) {
+            casella = caselle_spostamento.three;
+        } else if( caselle_spostamento.four != null) {
+              casella = caselle_spostamento.four;
         } else {
-            pcSposta();
+            casella = null;
         }
+
+        sposta_pedina(casella, i);
+        console.log("sposta");
+        return true;
+}
+
+function checkIfIcanMove(pedina){
+    if((pedina.className == "pedina_scura"|| pedina.className == "dama_scura") && controllo_mosse_spostamento(pedina).check) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function vsPcMode(){
@@ -118,7 +113,15 @@ function vsPcMode(){
 
     checkMangia = pcMangia();
     if(!checkMangia) {
-        checkSposta = pcSposta();
+    //altrimenti prende una pedina a caso e la muove
+        var i = Math.floor(Math.random() * 64) + 1;
+        var pedina = document.getElementById(i);
+        while(!checkIfIcanMove(pedina)){
+            var i = Math.floor(Math.random() * 64) + 1;
+            pedina = document.getElementById(i);
+        }
+        var caselle_spostamento = controllo_mosse_spostamento(pedina);
+        checkSposta = pcSposta(caselle_spostamento, i);
     }
     if(checkMangia || checkSposta) {
         return true;
