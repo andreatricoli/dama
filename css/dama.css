@@ -95,8 +95,11 @@
     background-position: center; 
 }
 
-#bodyRoom{
-	background-image: url("../img/gray-wallpaper-13.jpg");
-	background-color: #343d46;
+#bodyRoom {
+    background-image: url("../img/gray-wallpaper-13.jpg");
+    background-color: #343d46;
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
