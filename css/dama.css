@@ -1,9 +1,9 @@
 #damiera {
 	width: 560px;
     margin-top: 50vh;
-    transform: translate(0, -50%);
-	margin-left: auto;
-	margin-right: auto;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
 	border:5px solid black;
 	box-shadow:5px 5px 15px black;
 }
