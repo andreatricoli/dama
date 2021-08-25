@@ -126,11 +126,15 @@ function controllo_vittoria_tutte_mangiate(){
 	if(pedine_chiare == 0){
 		win = "neri";
 		//ajaxGestore(win);
+		document.getElementsByClassName('js-h1-victory').display = "block";
+		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I" + win + "VINCONO!";
 		return true;
 	}
 			
 	if(pedine_scure == 0){
 		win = "bianchi";
+		document.getElementsByClassName('js-h1-victory').display = "block";
+		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I" + win + "VINCONO!";
 		//ajaxGestore(win);
 		return true;
 	}
@@ -155,6 +159,8 @@ function controllo_vittoria_tutte_bloccate(){
 		if(continua_partita != true){
 			win = "neri";
 			//ajaxGestore(win);
+			document.getElementsByClassName('js-h1-victory').display = "block";
+            		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I" + win + "VINCONO!";
 			return;
 		}
 	}
@@ -175,6 +181,8 @@ function controllo_vittoria_tutte_bloccate(){
 		if(continua_partita != true){
 			win = "bianchi";
 			//ajaxGestore(win);
+			document.getElementsByClassName('js-h1-victory').display = "block";
+            		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I" + win + "VINCONO!";
 			return;
 		}
 	}
