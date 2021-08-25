@@ -50,7 +50,7 @@ function pcMangia(){
             if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura") {
                 var caselle_mangia = controllo_mosse_mangia(pedina);
 
-                while(caselle_mangia.check) {
+                if(caselle_mangia.check) {
 
                     var casella;
                     var altracasella;
@@ -71,13 +71,13 @@ function pcMangia(){
                         casella = null;
                         altracasella = null;
                     }
-                    console.log("casella: " + casella + "i: " + i + "altracasella.firstChild.id: " + altracasella.firstChild.id);
+
                     caselle_mangia = mangia_pedina(casella, i, altracasella.firstChild.id);
-                    console.log(caselle_mangia);
+
                     console.log("mangia");
-                    if(caselle_mangia == undefined) {
-                        return true;
-                    }
+
+                    return true;
+
                 }
             }
         }
