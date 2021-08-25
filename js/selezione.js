@@ -51,5 +51,5 @@ function seleziona_pedina2(x){
 	}
 	
 	var pedina = document.getElementById(x.id);
-	controllo_mosse_mangia(pedina);
+	return controllo_mosse_mangia(pedina);
 }		

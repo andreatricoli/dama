@@ -261,12 +261,12 @@ function mangia_pedina(casellasel, y, z){
 			
 		if(controllo_mosse_mangia(casellasel.firstChild).check){
 			if(control == true){
-				seleziona_pedina2(casellasel.firstChild);
+				return seleziona_pedina2(casellasel.firstChild);
 			}
 			
 			if(control == false){
 				if(casellasel.firstChild.id>8 && casellasel.firstChild.id<57)
-					seleziona_pedina2(casellasel.firstChild);
+					return seleziona_pedina2(casellasel.firstChild);
 				else
 					gestione_turni();
 			}

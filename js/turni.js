@@ -50,7 +50,7 @@ function pcMangia(){
             if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura") {
                 var caselle_mangia = controllo_mosse_mangia(pedina);
 
-                if(caselle_mangia.check) {
+                while(caselle_mangia.check) {
 
                     var casella;
                     var altracasella;
@@ -72,7 +72,7 @@ function pcMangia(){
                         altracasella = null;
                     }
 
-                    mangia_pedina(casella, i, altracasella.firstChild.id);
+                    caselle_mangia = mangia_pedina(casella, i, altracasella.firstChild.id);
                     console.log("mangia");
                     return true;
                 }
