@@ -49,7 +49,7 @@ function pcMangia(){
             var pedina = document.getElementById(i);
             if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura") {
                 var caselle_mangia = controllo_mosse_mangia(pedina);
-                console.log(caselle_mangia);
+
                 while(caselle_mangia.check) {
 
                     var casella;
@@ -71,7 +71,7 @@ function pcMangia(){
                         casella = null;
                         altracasella = null;
                     }
-
+                    console.log("casella: " + casella + "i: " + i + "altracasella.firstChild.id: " + altracasella.firstChild.id);
                     caselle_mangia = mangia_pedina(casella, i, altracasella.firstChild.id);
                     console.log(caselle_mangia);
                     console.log("mangia");
