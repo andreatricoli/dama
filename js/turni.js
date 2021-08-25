@@ -75,7 +75,9 @@ function pcMangia(){
                     caselle_mangia = mangia_pedina(casella, i, altracasella.firstChild.id);
                     console.log(caselle_mangia);
                     console.log("mangia");
-                    return true;
+                    if(caselle_mangia == undefined) {
+                        return true;
+                    }
                 }
             }
         }
