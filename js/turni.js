@@ -6,38 +6,41 @@ function gestione_turni(){
 	if(cvtm == false){
 		var cvtb = controllo_vittoria_tutte_bloccate();
 	}
-	if(numturno%2==1){ //muovono i bianchi
-		//changeNavbarStyle("white");
-		for(var i=1; i<=64; i++){
-			var pedina = document.getElementById(i);
-			if(pedina.className == "pedina_scura" || pedina.className == "dama_scura"){
-				disabilita(pedina);
-			}
-					
-			if(pedina.className == "pedina_chiara" || pedina.className == "dama_chiara"){
-				abilita(pedina);
-			}
-		}
-	}
-			
-	if(numturno%2==0){//muovono i neri 
-		//changeNavbarStyle("black");
-		for(var i=1; i<=64; i++){
-			var pedina = document.getElementById(i);
-			if(pedina.className == "pedina_chiara"|| pedina.className == "dama_chiara"){
-				disabilita(pedina);
-			}
-					
-			if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura"){
-				abilita(pedina);
-			}
-		}
+	if(!cvtb && !cvtm) {
 
-        if(vsPcModeFlag) {
-            setTimeout(vsPcMode, 500);
+        if(numturno%2==1){ //muovono i bianchi
+            //changeNavbarStyle("white");
+            for(var i=1; i<=64; i++){
+                var pedina = document.getElementById(i);
+                if(pedina.className == "pedina_scura" || pedina.className == "dama_scura"){
+                    disabilita(pedina);
+                }
+
+                if(pedina.className == "pedina_chiara" || pedina.className == "dama_chiara"){
+                    abilita(pedina);
+                }
+            }
         }
 
-	}		
+        if(numturno%2==0){//muovono i neri
+            //changeNavbarStyle("black");
+            for(var i=1; i<=64; i++){
+                var pedina = document.getElementById(i);
+                if(pedina.className == "pedina_chiara"|| pedina.className == "dama_chiara"){
+                    disabilita(pedina);
+                }
+
+                if(pedina.className == "pedina_scura"|| pedina.className == "dama_scura"){
+                    abilita(pedina);
+                }
+            }
+
+            if(vsPcModeFlag) {
+                setTimeout(vsPcMode, 500);
+            }
+
+        }
+    }
 }
 
 function pcMangia(){
