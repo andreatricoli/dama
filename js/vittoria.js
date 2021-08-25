@@ -111,13 +111,13 @@ function classifica(elem){
 function vittoria_per_abbandono(){
 	if(numturno%2==1){
 		win = "neri";
-		ajaxGestore(win);
+		//ajaxGestore(win);
 		return;
 	}
 	
 	if(numturno%2==0){
 		win = "bianchi";
-		ajaxGestore(win);
+		//ajaxGestore(win);
 		return;
 	}
 }
