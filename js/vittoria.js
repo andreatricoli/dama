@@ -125,13 +125,13 @@ function vittoria_per_abbandono(){
 function controllo_vittoria_tutte_mangiate(){
 	if(pedine_chiare == 0){
 		win = "neri";
-		ajaxGestore(win);
+		//ajaxGestore(win);
 		return true;
 	}
 			
 	if(pedine_scure == 0){
 		win = "bianchi";
-		ajaxGestore(win);
+		//ajaxGestore(win);
 		return true;
 	}
 	return false;
@@ -154,7 +154,7 @@ function controllo_vittoria_tutte_bloccate(){
 		
 		if(continua_partita != true){
 			win = "neri";
-			ajaxGestore(win);
+			//ajaxGestore(win);
 			return;
 		}
 	}
@@ -174,7 +174,7 @@ function controllo_vittoria_tutte_bloccate(){
 		
 		if(continua_partita != true){
 			win = "bianchi";
-			ajaxGestore(win);
+			//ajaxGestore(win);
 			return;
 		}
 	}
