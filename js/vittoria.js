@@ -127,14 +127,14 @@ function controllo_vittoria_tutte_mangiate(){
 		win = "neri";
 		//ajaxGestore(win);
 		document.getElementsByClassName('js-h1-victory')[0].style.display = "block";
-		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win + " VINCONO!";
+		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win.toUpperCase() + " VINCONO!";
 		return true;
 	}
 			
 	if(pedine_scure == 0){
 		win = "bianchi";
 		document.getElementsByClassName('js-h1-victory')[0].style.display = "block";
-		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win + " VINCONO!";
+		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win.toUpperCase() + " VINCONO!";
 		//ajaxGestore(win);
 		return true;
 	}
@@ -160,7 +160,7 @@ function controllo_vittoria_tutte_bloccate(){
 			win = "neri";
 			//ajaxGestore(win);
 			document.getElementsByClassName('js-h1-victory')[0].style.display = "block";
-            		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win + " VINCONO!";
+            		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win.toUpperCase() + " VINCONO!";
 			return;
 		}
 	}
@@ -182,7 +182,7 @@ function controllo_vittoria_tutte_bloccate(){
 			win = "bianchi";
 			//ajaxGestore(win);
 			document.getElementsByClassName('js-h1-victory')[0].style.display = "block";
-            		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win + " VINCONO!";
+            		document.getElementsByClassName('js-h1-victory')[0].innerHTML = "I " + win.toUpperCase() + " VINCONO!";
 			return;
 		}
 	}
